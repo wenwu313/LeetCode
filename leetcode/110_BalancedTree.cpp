@@ -24,20 +24,20 @@ public:
 
 class Solution2 {
 public:
-    bool isBalanced(TreeNode *root) {
-        int height=0;
-        return isBalancedUtil(root, height);
-    }
+	bool isBalancedFunc(TreeNode *root, int& depth){
+		if (!root){
+			depth = -1;
+			return true;
+		}
+		int left = 0, right = 0;
+		bool isLeft = isBalancedFunc(root->left, left);
+		bool isRight = isBalancedFunc(root->right, right);
+		depth = (left > right ? left : right) + 1;
+		return isLeft && isRight && abs(left - right) <= 1;
+	}
 
-    bool isBalancedUtil(TreeNode* root, int& height){
-       if(root==NULL){
-          height=0;
-          return true;
-       }
-       int lh=0, rh=0;
-       bool isLeft = isBalancedUtil(root->left, lh);
-       bool isRight = isBalancedUtil(root->right, rh);
-       height = (lh > rh ? lh : rh) + 1;
-       return (abs(lh-rh)<=1 && isLeft && isRight);
-    }
+	bool isBalanced(TreeNode* root) {
+		int x = 0;
+		return isBalancedFunc(root, x);
+	}
 };
