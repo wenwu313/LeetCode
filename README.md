@@ -124,6 +124,7 @@ This respository contains my code of LeetCode Online Judge.
 |216|[Combination Sum III](https://leetcode.com/problems/combination-sum-iii/description/) | [C++](./leetcode/216_CombinationSumIII.cpp)|Backtracking|
 |221|[Maximal Square](https://leetcode.com/problems/maximal-square/description/) | [C++](./leetcode/221_MaximalSquare.cpp)|Dynamic Programming|
 |225|[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/description/) | [C++](./leetcode/225_ImplementStackUsingQueues.cpp)|Stack|
+|230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/) | [C++](./leetcode/230_KthSmallestElementBST.cpp)|Tree|
 |232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/description/) | [C++](./leetcode/232_ImplementQueueUsingStacks.cpp)|Stack|
 |234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/) | [C++](./leetcode/234_PalindromeLinkedList.cpp)|Linked List|
 |235|[Lowest Common Ancestor of BST](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/) | [C++](./leetcode/235_LowestCommonAncestorBinarySearchTree.cpp)|Tree|
@@ -146,6 +147,7 @@ This respository contains my code of LeetCode Online Judge.
 |344|[Reverse String](https://leetcode.com/problems/reverse-string/description/) | [C++](./leetcode/344_ReverseString.cpp)|Two Pointers|
 |349|[Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/description/) | [C++](./leetcode/349_IntersectionOfTwoArrays.cpp)|Hash Table|
 |350|[Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/description/) | [C++](./leetcode/350_IntersectionOfTwoArraysII.cpp)|Hash Table|
+|371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | [C++](./leetcode/371_SumofTwoIntegers.cpp)|Math|
 |387|[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | [C++](./leetcode/387_FirstUniqueCharacterInAString.cpp)|Hash Table|
 |389|[Find the Difference](https://leetcode.com/problems/find-the-difference/description/) | [C++](./leetcode/389_FindTheDifference.cpp)|Hash Table|
 |404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/description/) | [C++](./leetcode/404_SumOfLeftLeaves.cpp)|Tree|
