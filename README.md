@@ -150,6 +150,7 @@ This respository contains my code of LeetCode Online Judge.
 |371|[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | [C++](./leetcode/371_SumofTwoIntegers.cpp)|Math|
 |387|[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/) | [C++](./leetcode/387_FirstUniqueCharacterInAString.cpp)|Hash Table|
 |389|[Find the Difference](https://leetcode.com/problems/find-the-difference/description/) | [C++](./leetcode/389_FindTheDifference.cpp)|Hash Table|
+|392|[Is Subsequence](https://leetcode.com/problems/is-subsequence/description/) | [C++](./leetcode/392_IsSubsequence.cpp)|String|
 |404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/description/) | [C++](./leetcode/404_SumOfLeftLeaves.cpp)|Tree|
 |409|[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/description/) | [C++](./leetcode/409_LongestPalindrome.cpp)|Hash Table|
 |415|[Add Strings](https://leetcode.com/problems/add-strings/description/) | [C++](./leetcode/415_AddStrings.cpp)|Math|
