@@ -144,6 +144,7 @@ This respository contains my code of LeetCode Online Judge.
 |313|[Super Ugly Number](https://leetcode.com/problems/super-ugly-number/description/) | [C++](./leetcode/313_SuperUglyNumber.cpp)|Math|
 |322|[Coin Change](https://leetcode.com/problems/coin-change/description/) | [C++](./leetcode/322_CoinChange.cpp)|Dynamic Programming|
 |329|[Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/) | [C++](./leetcode/329_LongestIncreasingPathinMatrix.cpp)|Depth-first Search|
+|343|[Integer Break](https://leetcode.com/problems/integer-break/description/) | [C++](./leetcode/343_IntegerBreak.cpp)|Dynamic Programming|
 |344|[Reverse String](https://leetcode.com/problems/reverse-string/description/) | [C++](./leetcode/344_ReverseString.cpp)|Two Pointers|
 |349|[Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/description/) | [C++](./leetcode/349_IntersectionOfTwoArrays.cpp)|Hash Table|
 |350|[Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/description/) | [C++](./leetcode/350_IntersectionOfTwoArraysII.cpp)|Hash Table|
