@@ -2,7 +2,7 @@
 
 ### 6.重建二叉树（前序和中序）
 
-```
+```c++
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
 	if (pre.empty() || vin.empty())
 		return NULL;
@@ -25,7 +25,7 @@ TreeNode* reConstruct(vector<int> &pre, vector<int> &vin, int pStart, int pEnd, 
 ```
 ### 17.合并两个排序链表
 
-```
+```c++
 ListNode* Merge(ListNode* pHead1, ListNode* pHead2){
 	if (!pHead1)
 		return pHead2;
@@ -44,7 +44,7 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2){
 ```
 ### 18.树的子结构
 
-```
+```c++
 bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
 {
 	if (!pRoot1 || !pRoot2) return false;
@@ -60,7 +60,7 @@ bool IsSubtree(TreeNode* pRoot1, TreeNode* pRoot2){
 ```
 ### 20.顺时针打印矩阵
 
-```
+```c++
 vector<int> spiralOrder(vector<vector<int>>& matrix) {
 	vector<int> res;
 	if (matrix.empty())
@@ -88,7 +88,7 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
 ```
 ### 21.包含min函数的栈
 
-```
+```c++
 class MinStack {
 public:
 	int min = INT_MAX;
@@ -125,7 +125,7 @@ public:
 ```
 ### 22.栈的输入输出队列
 
-```
+```c++
 bool IsPopOrder(vector<int> pushV, vector<int> popV) {
 	stack<int> stk;
 	int j = 0;
@@ -141,7 +141,7 @@ bool IsPopOrder(vector<int> pushV, vector<int> popV) {
 ```
 ### 27.二叉树转双向链表
 
-```
+```c++
 TreeNode* Convert(TreeNode* pRootOfTree)
 {
 	if (pRootOfTree == NULL) return NULL;
@@ -168,7 +168,7 @@ TreeNode* ConvertNode(TreeNode* root) {
 ```
 ### 32.1到n整数中1出现的次数
 
-```
+```c++
 int NumberOf1Between1AndN_Solution(int n)
 {
 	int count = 0, loc = 1;
@@ -190,7 +190,7 @@ int NumberOf1Between1AndN_Solution(int n)
 ```
 ### 36.数组中逆序对
 
-```
+```c++
 int result;
 void merge(vector<int> &nums, int left, int right, int mid){
 	vector<int> temp(right - left + 1, 0);
@@ -222,7 +222,7 @@ void mergeSort(vector<int> &nums, int left, int right){
 ```
 ### 39.平衡二叉树判断
 
-```
+```c++
 bool IsBalanced(TreeNode* pRoot, int &depth) {
 	if (!pRoot) {
 		depth = -1;
@@ -246,7 +246,7 @@ bool IsBalanced_Solution(TreeNode* pRoot) {
 ```
 ### 42.翻转单词顺序
 
-```
+```c++
 string ReverseSentence(string str) {
 	int len = str.size();
 	int start = 0;
@@ -268,7 +268,7 @@ string ReverseSentence(string str) {
 ```
 ### 49.把字符串转化成整数
 
-```
+```c++
 bool isTrue = false;
 long long  myAtoi(string str){
 	int i = 0, minus = 1;
@@ -305,7 +305,7 @@ long long  myAtoi(string str){
 ```
 ### 50.二叉树最小公共祖先
 
-```
+```c++
 void getPath(TreeNode *root, TreeNode * node, vector<TreeNode*> &path, vector<TreeNode*> &temp) {
 	if (path.size() > 0)
 		return;
@@ -339,7 +339,7 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 ```
 ### 51.数组中重复的数
 
-```
+```c++
 bool duplicate(int numbers[], int length, int* duplication) {
 	if (numbers == NULL || length <= 0)
 		return false;
@@ -361,7 +361,7 @@ bool duplicate(int numbers[], int length, int* duplication) {
 ```
 ### 64.数据流中的中位数
 
-```
+```c++
 class Solution {
 public:
 	void Insert(int num)
