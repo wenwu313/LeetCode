@@ -1,6 +1,6 @@
-# 剑指offer部分源代码
+## 剑指offer部分源代码
 
-## 6.重建二叉树（前序和中序）
+### 6.重建二叉树（前序和中序）
 
 ```
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> vin) {
@@ -23,27 +23,26 @@ TreeNode* reConstruct(vector<int> &pre, vector<int> &vin, int pStart, int pEnd, 
 	return root;
 }
 ```
-## 17.合并两个排序链表
+### 17.合并两个排序链表
 
 ```
-ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
-{
-    if(!pHead1)
-        return pHead2;
-    if(!pHead2)
-        return pHead1;
-        
-    if(pHead1->val<pHead2->val){
-        pHead1->next=Merge(pHead1->next, pHead2);
-        return pHead1;
-    }
-    else{
-        pHead2->next=Merge(pHead1, pHead2->next);
-        return pHead2;
-    }        
+ListNode* Merge(ListNode* pHead1, ListNode* pHead2){
+	if (!pHead1)
+		return pHead2;
+	if (!pHead2)
+		return pHead1;
+
+	if (pHead1->val<pHead2->val) {
+		pHead1->next = Merge(pHead1->next, pHead2);
+		return pHead1;
+	}
+	else {
+		pHead2->next = Merge(pHead1, pHead2->next);
+		return pHead2;
+	}
 }
 ```
-## 18.树的子结构
+### 18.树的子结构
 
 ```
 bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
@@ -59,7 +58,7 @@ bool IsSubtree(TreeNode* pRoot1, TreeNode* pRoot2){
 	return IsSubtree(pRoot1->left, pRoot2->left) && IsSubtree(pRoot1->right, pRoot2->right);
 }
 ```
-## 20.顺时针打印矩阵
+### 20.顺时针打印矩阵
 
 ```
 vector<int> spiralOrder(vector<vector<int>>& matrix) {
@@ -87,87 +86,87 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
 	return res;
 }
 ```
-## 21.包含min函数的栈
+### 21.包含min函数的栈
 
 ```
 class MinStack {
 public:
-    int min=INT_MAX;
-    stack<int> stack1;
-    
-    MinStack() {
-        
-    }
-    
-    void push(int x) {
-        if(x<=min){
-            stack1.push(min);
-            min=x;
-        }
-        stack1.push(x);
-    }
-    
-    void pop() {
-        if(stack1.top()==min){
-            stack1.pop();
-            min = stack1.top();
-        }
-        stack1.pop();    
-    }
-    
-    int top() {
-        return stack1.top();
-    }
-    
-    int getMin() {
-        return min;
-    }
+	int min = INT_MAX;
+	stack<int> stack1;
+
+	MinStack() {
+
+	}
+
+	void push(int x) {
+		if (x <= min) {
+			stack1.push(min);
+			min = x;
+		}
+		stack1.push(x);
+	}
+
+	void pop() {
+		if (stack1.top() == min) {
+			stack1.pop();
+			min = stack1.top();
+		}
+		stack1.pop();
+	}
+
+	int top() {
+		return stack1.top();
+	}
+
+	int getMin() {
+		return min;
+	}
 };
 ```
-## 22.栈的输入输出队列
+### 22.栈的输入输出队列
 
 ```
-bool IsPopOrder(vector<int> pushV, vector<int> popV) {  
-    stack<int> stk;  
-    int j = 0;  
-    for (int i = 0; i < pushV.size();i++){  
-        stk.push(pushV[i]);  
-        while (j < popV.size() && stk.top() == popV[j]){  
-            stk.pop();  
-            j++;  
-        }  
-    }  
-    return stk.empty();  
-}  
+bool IsPopOrder(vector<int> pushV, vector<int> popV) {
+	stack<int> stk;
+	int j = 0;
+	for (int i = 0; i < pushV.size(); i++) {
+		stk.push(pushV[i]);
+		while (j < popV.size() && stk.top() == popV[j]) {
+			stk.pop();
+			j++;
+		}
+	}
+	return stk.empty();
+} 
 ```
-## 27.二叉树转双向链表
+### 27.二叉树转双向链表
 
 ```
-TreeNode* Convert(TreeNode* pRootOfTree)  
-    {  
-        if(pRootOfTree == NULL) return NULL;  
-        pRootOfTree = ConvertNode(pRootOfTree);  
-        while(pRootOfTree->left) pRootOfTree=pRootOfTree->left;  
-        return pRootOfTree;  
-    }  
-   
-    TreeNode* ConvertNode(TreeNode* root){  
-        if(root->left){  
-            TreeNode* left = ConvertNode(root->left);  
-            while(left->right) left = left->right;  
-            left->right = root;  
-            root->left = left;  
-        }  
-        if(root->right){  
-            TreeNode* right = ConvertNode(root->right);  
-            while(right->left) right = right->left;  
-            right->left = root;  
-            root->right = right;  
-        }  
-        return root;  
-    }  
+TreeNode* Convert(TreeNode* pRootOfTree)
+{
+	if (pRootOfTree == NULL) return NULL;
+	pRootOfTree = ConvertNode(pRootOfTree);
+	while (pRootOfTree->left) pRootOfTree = pRootOfTree->left;
+	return pRootOfTree;
+}
+
+TreeNode* ConvertNode(TreeNode* root) {
+	if (root->left) {
+		TreeNode* left = ConvertNode(root->left);
+		while (left->right) left = left->right;
+		left->right = root;
+		root->left = left;
+	}
+	if (root->right) {
+		TreeNode* right = ConvertNode(root->right);
+		while (right->left) right = right->left;
+		right->left = root;
+		root->right = right;
+	}
+	return root;
+} 
 ```
-## 32.1到n整数中1出现的次数
+### 32.1到n整数中1出现的次数
 
 ```
 int NumberOf1Between1AndN_Solution(int n)
@@ -189,7 +188,7 @@ int NumberOf1Between1AndN_Solution(int n)
 	return count;
 }
 ```
-## 36.数组中逆序对
+### 36.数组中逆序对
 
 ```
 int result;
@@ -221,53 +220,53 @@ void mergeSort(vector<int> &nums, int left, int right){
 	}
 }
 ```
-## 39.平衡二叉树判断
+### 39.平衡二叉树判断
 
 ```
-bool IsBalanced(TreeNode* pRoot,int &depth){
-    if(!pRoot){
-        depth = -1;
-        return true;
-    }
-    int left,right;
-    if(IsBalanced(pRoot->left,left)&& IsBalanced(pRoot->right,right)) {
-        int diff = left-right;
-        if(diff<=1 && diff>=-1){
-            depth = 1+ (left>right?left:right);
-            return true;
-        }          
-    }         
-    return false;
+bool IsBalanced(TreeNode* pRoot, int &depth) {
+	if (!pRoot) {
+		depth = -1;
+		return true;
+	}
+	int left, right;
+	if (IsBalanced(pRoot->left, left) && IsBalanced(pRoot->right, right)) {
+		int diff = left - right;
+		if (diff <= 1 && diff >= -1) {
+			depth = 1 + (left>right ? left : right);
+			return true;
+		}
+	}
+	return false;
 }
-    
+
 bool IsBalanced_Solution(TreeNode* pRoot) {
-    int depth;
-    return IsBalanced(pRoot,depth);
+	int depth;
+	return IsBalanced(pRoot, depth);
 }
 ```
-## 42.翻转单词顺序
+### 42.翻转单词顺序
 
 ```
 string ReverseSentence(string str) {
-        int len = str.size();
-     int start = 0;
-     for(int i = 0; i < len; i ++)
-     {
-         if(str[i] == ' ')
-         {
-             reverse(str.begin()+start, str.begin()+i);
-             start = i+1;
-         }
-         if(i == len-1)
-         {
-             reverse(str.begin()+start, str.end());
-         }
-     }
-     reverse(str.begin(), str.end());
-     return str;
-    }
+	int len = str.size();
+	int start = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (str[i] == ' ')
+		{
+			reverse(str.begin() + start, str.begin() + i);
+			start = i + 1;
+		}
+		if (i == len - 1)
+		{
+			reverse(str.begin() + start, str.end());
+		}
+	}
+	reverse(str.begin(), str.end());
+	return str;
+}
 ```
-## 49.把字符串转化成整数
+### 49.把字符串转化成整数
 
 ```
 bool isTrue = false;
@@ -304,7 +303,7 @@ long long  myAtoi(string str){
 	return result;
 }
 ```
-## 50.二叉树最小公共祖先
+### 50.二叉树最小公共祖先
 
 ```
 void getPath(TreeNode *root, TreeNode * node, vector<TreeNode*> &path, vector<TreeNode*> &temp) {
@@ -338,7 +337,7 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 	return plast;	
 }
 ```
-## 51.数组中重复的数
+### 51.数组中重复的数
 
 ```
 bool duplicate(int numbers[], int length, int* duplication) {
@@ -360,36 +359,36 @@ bool duplicate(int numbers[], int length, int* duplication) {
 	return false;
 }
 ```
-## 64.数据流中的中位数
+### 64.数据流中的中位数
 
 ```
 class Solution {
-public:  
-    void Insert(int num)
-    {
-        count++;
-        if(count&0x1 == 1){
-            minheap.push(num);
-            maxheap.push(minheap.top());
-            minheap.pop();
-        }
-        else{
-            maxheap.push(num);
-            minheap.push(maxheap.top());
-            maxheap.pop();
-        }
-    }
+public:
+	void Insert(int num)
+	{
+		count++;
+		if (count & 0x1 == 1) {
+			minheap.push(num);
+			maxheap.push(minheap.top());
+			minheap.pop();
+		}
+		else {
+			maxheap.push(num);
+			minheap.push(maxheap.top());
+			maxheap.pop();
+		}
+	}
 
-    double GetMedian()
-    { 
-        if(count&0x1 == 1)
-            return maxheap.top();
-        else
-            return (maxheap.top()+minheap.top())/2.0;  //注意浮点数
-    }
+	double GetMedian()
+	{
+		if (count & 0x1 == 1)
+			return maxheap.top();
+		else
+			return (maxheap.top() + minheap.top()) / 2.0;  //注意浮点数
+	}
 private:
-    int count =0;
-    priority_queue<int> maxheap;
-    priority_queue<int,vector<int>,greater<int>> minheap;
+	int count = 0;
+	priority_queue<int> maxheap;
+	priority_queue<int, vector<int>, greater<int>> minheap;
 };
 ```
