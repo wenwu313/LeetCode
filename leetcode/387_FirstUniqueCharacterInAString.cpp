@@ -1,4 +1,4 @@
-int firstUniqChar(string s) {
+﻿int firstUniqChar(string s) {
     unordered_map<char,int> map;
     for(char ch:s){
         map[ch]++;
@@ -9,14 +9,3 @@ int firstUniqChar(string s) {
     }
     return -1;
 }    
-
-//java代码
-int firstUniqChar(String s) {
-    int freq[] = new int[26];
-    for (int i = 0; i < s.length(); i++)
-        freq[s.charAt(i) - 'a'] ++;
-    for (int i = 0; i < s.length(); i++)
-    if (freq[s.charAt(i) - 'a'] == 1)
-        return i;
-    return -1;
-}

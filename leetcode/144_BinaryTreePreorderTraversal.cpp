@@ -1,19 +1,19 @@
 class Solution {
 public:
     //recursive
-    void preorderTraversal(TreeNode* root,vector<int> &res)    
-{     
-    if (root == NULL) return;  
-    res.push_back(root->val);  
-    preorderTraversal(root->left, res);                            
-    preorderTraversal(root->right, res);  
-}  
-  
-vector<int> preorderTraversal(TreeNode* root) {    
-    vector<int> res;  
-    preorderTraversal(root,res);  
-    return res;  
-}  
+    void preorderTraversal(TreeNode* root, vector<int> &res)
+    {
+        if (root == NULL) return;
+        res.push_back(root->val);
+        preorderTraversal(root->left, res);
+        preorderTraversal(root->right, res);
+    }
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        preorderTraversal(root, res);
+        return res;
+    }
 };
 
 /* iter1

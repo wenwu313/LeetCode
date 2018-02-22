@@ -306,31 +306,30 @@ long long  myAtoi(string str) {
 ### 50.二叉树最小公共祖先
 
 ```c++
-void getPath(TreeNode *root, TreeNode * node, vector<TreeNode*> &path, vector<TreeNode*> &temp) {
-    if (path.size() > 0)
-        return;
-    temp.push_back(root);
+bool getPath(TreeNode* root, TreeNode* node, vector<TreeNode*> &path) {
     if (root == node) {
-        path = temp;
-        return;
+        path.push_back(root);
+        return true;
     }
-    if (root->left)
-        getPath(root->left, node, path, temp);
-    if (root->right)
-        getPath(root->right, node, path, temp);
-    temp.pop_back();
+    path.push_back(root);
+    if (root->left && getPath(root->left, node, path) ||
+        root->right && getPath(root->right, node, path))
+        return true;
+    path.pop_back();
+    return false;
 }
 
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (!root || !p || !q) return NULL;
-    vector<TreeNode*> pathp, pathq, temp;
-    getPath(root, p, pathp, temp);
-    temp.clear();    //清空数组
-    getPath(root, q, pathq, temp);
+    vector<TreeNode*> path1;
+    vector<TreeNode*> path2;
+    getPath(root, p, path1);
+    getPath(root, q, path2);
+
     TreeNode *plast = NULL;
-    for (int i = 0; i < pathp.size() && i < pathq.size(); i++) {
-        if (pathp[i] == pathq[i])
-            plast = pathp[i];
+    for (int i = 0; i<path1.size() && i <path2.size(); i++) {
+        if (path1[i] == path2[i])
+            plast = path1[i];
         else
             break;
     }

@@ -1,30 +1,30 @@
-//暴力搜索  超时 时间复杂度O(N^2)
+﻿//暴力搜索  超时 时间复杂度O(N^2)
 int maxArea(vector<int>& height) {
-	int area = 0;
-	for (int i = 0; i < height.size() - 1; ++i){
-		for (int j = i + 1; j < height.size(); ++j){
-			int temp = min(height[i], height[j])*(j - i);
-			if (temp>area)
-				area = temp;
-		}
-	}
-	return area;
+    int area = 0;
+    for (int i = 0; i < height.size() - 1; ++i) {
+        for (int j = i + 1; j < height.size(); ++j) {
+            int temp = min(height[i], height[j])*(j - i);
+            if (temp>area)
+                area = temp;
+        }
+    }
+    return area;
 }
 
 //头尾往中间移  较短的一边先移  移到比自己大的边  O(N)
-int maxArea(vector<int>& height) {   
-	int i = 0, j = height.size() - 1;
-	int area = 0;
-	while (i < j){
-		int temp = min(height[i], height[j])*(j - i);
-		if (temp>area)
-			area = temp;
-		if (height[i] < height[j])
-			++i;
-		else
-			--j;
-	}
-	return area;
+int maxArea(vector<int>& height) {
+    int i = 0, j = height.size() - 1;
+    int area = 0;
+    while (i < j) {
+        int temp = min(height[i], height[j])*(j - i);
+        if (temp>area)
+            area = temp;
+        if (height[i] < height[j])
+            ++i;
+        else
+            --j;
+    }
+    return area;
 }
 
 int maxArea(vector<int>& height) {

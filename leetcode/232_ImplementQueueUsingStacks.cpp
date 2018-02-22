@@ -1,46 +1,46 @@
 class MyQueue {
 private:
-	stack<int> stack1;
-	stack<int> stack2;
+    stack<int> stack1;
+    stack<int> stack2;
 
 public:
-	/** Initialize your data structure here. */
-	MyQueue() {
-		
-	}
+    /** Initialize your data structure here. */
+    MyQueue() {
 
-	/** Push element x to the back of queue. */
-	void push(int x) {
-		stack1.push(x);
-	}
+    }
 
-	/** Removes the element from in front of queue and returns that element. */
-	int pop() {
-		int result = peek();
-		stack2.pop();
-		return result;
-	}
+    /** Push element x to the back of queue. */
+    void push(int x) {
+        stack1.push(x);
+    }
 
-	/** Get the front element. */
-	int peek() {
-		if (stack2.empty()){
-			while (!stack1.empty()){
-				int temp = stack1.top();
-				stack1.pop();
-				stack2.push(temp);
-			}
-		}
-		int result = stack2.top();
-		return result;
-	}
+    /** Removes the element from in front of queue and returns that element. */
+    int pop() {
+        int result = peek();
+        stack2.pop();
+        return result;
+    }
 
-	/** Returns whether the queue is empty. */
-	bool empty() {
-		if (stack2.empty() && stack1.empty())  //return stack2.empty() && stack1.empty()
-			return true;
-		else
-			return false;
-	}
+    /** Get the front element. */
+    int peek() {
+        if (stack2.empty()) {
+            while (!stack1.empty()) {
+                int temp = stack1.top();
+                stack1.pop();
+                stack2.push(temp);
+            }
+        }
+        int result = stack2.top();
+        return result;
+    }
+
+    /** Returns whether the queue is empty. */
+    bool empty() {
+        if (stack2.empty() && stack1.empty())  //return stack2.empty() && stack1.empty()
+            return true;
+        else
+            return false;
+    }
 };
 
 /**
