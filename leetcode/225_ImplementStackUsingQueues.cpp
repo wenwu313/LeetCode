@@ -11,10 +11,7 @@ public:
   
     /** Push element x onto stack. */  
     void push(int x) {  
-        if (que1.empty())  
-            que1.push(x);  
-        else  
-            que2.push(x);  
+        que2.push(x);  
     }  
   
     /** Removes the element on top of the stack and returns that element. */  
@@ -64,9 +61,53 @@ public:
 * int param_3 = obj.top(); 
 * bool param_4 = obj.empty(); 
 */  
+class MyStack2 {
+public:
+    queue<int> que1, que2;
+    MyStack() {
+    }
+
+    void push(int x) {
+        if (que1.empty()) {
+            que1.push(x);
+            while (!que2.empty()) {
+                int temp = que2.front();
+                que2.pop();
+                que1.push(temp);
+            }
+        }
+        else {
+            que2.push(x);
+            while (!que1.empty()) {
+                int temp = que1.front();
+                que1.pop();
+                que2.push(temp);
+            }
+        }
+    }
+
+    int pop() {
+        int x = que1.front();
+        if (que1.empty()) {
+            x = que2.front();
+            que2.pop();
+        }
+        else
+            que1.pop();
+        return x;
+    }
+
+    int top() {
+        return que1.empty() ? que2.front() : que1.front();
+    }
+
+    bool empty() {
+        return que1.empty() && que2.empty();
+    }
+};
 
 //一个队列实现一个栈  
-class Stack {  
+class Stack3 {  
 public:  
     queue<int> que;  
     void push(int x) {  

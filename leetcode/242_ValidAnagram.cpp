@@ -1,14 +1,17 @@
-bool isAnagram(string s, string t) {
-    if (s.empty() && t.empty())
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        unordered_map<char, int> unmap;
+        for (char ch : s) {
+            unmap[ch]++;
+        }
+        for (char ch : t) {
+            unmap[ch]--;
+        }
+        for (auto pair : unmap) {
+            if (pair.second)
+                return false;
+        }
         return true;
-    if (s.size() != t.size()) return false;
-    unordered_map<char, int> map;
-    for (int i = 0; i < s.size(); i++) {
-        map[s[i]]++;
-        map[t[i]]--;
     }
-    for (auto count : map) {
-        if (count.second) return false;
-    }
-    return true;
-}
+};

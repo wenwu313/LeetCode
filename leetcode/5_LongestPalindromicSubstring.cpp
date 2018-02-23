@@ -6,23 +6,20 @@ bool isPalindrome(string &s, int begin, int end)
             ++begin;
             --end;
         }
-        else {
+        else
             return false;
-            break;
-        }
     }
     return true;
 }
 
 string longestPalindrome(string s) {
     int maxLength = 0;
-    string result(&s[0], &s[0] + 1);
+    string result = "";
     for (int i = 0; i < s.size(); ++i) {
-        for (int j = i + 1; j < s.size(); ++j) {
+        for (int j = i; j < s.size(); ++j) {
             if (isPalindrome(s, i, j) && j - i + 1>maxLength) {
                 maxLength = j - i + 1;
-                string temp(&s[i], &s[j] + 1);
-                result = temp;
+                result = s.substr(i, j - i + 1);
             }
         }
     }

@@ -166,6 +166,22 @@ TreeNode* ConvertNode(TreeNode* root) {
     return root;
 } 
 ```
+### 29.数组中出现次数超过一半的数字
+```c++
+int majorityElement(vector<int>& nums) {
+    int x = nums[0], count = 1;
+    for (int i = 1; i < nums.size(); i++) {
+        if (count == 0) {
+            x = nums[i];
+            count = 1;
+            continue;
+        }
+        if (nums[i] == x)  count++;
+        else  count--;
+    }
+    return x;
+}
+```
 ### 32.1到n整数中1出现的次数
 
 ```c++
