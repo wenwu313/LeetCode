@@ -3,15 +3,15 @@
 ### 5.从尾到头打印链表
 ```c++
 void printFunc(ListNode* head, vector<int> &res){
-	if (!head) return;
-	printFunc(head->next, res);
-	res.push_back(head->val);
+    if (!head) return;
+    printFunc(head->next, res);
+    res.push_back(head->val);
 }
 
 vector<int> printListFromTailToHead(ListNode* head) {
-	vector<int> res;
-	printFunc(head, res);
-	return res;
+    vector<int> res;
+    printFunc(head, res);
+    return res;
 }
 ```
 ### 6.重建二叉树（前序和中序）
@@ -40,71 +40,72 @@ TreeNode* reConstruct(vector<int> &pre, vector<int> &vin, int pStart, int pEnd, 
 ### 8.旋转数组的最小数字
 ```c++
 int minNumberInRotateArray(vector<int> rotateArray) {
-	int left = 0, right = rotateArray.size() - 1;
-	while (left<right){
-		int mid = (left + right) >> 1;
-		if (rotateArray[mid]>rotateArray[right])
-			left = mid + 1;
-		else
-			right = mid;
-	}
-	return rotateArray[left];
+    int left = 0, right = rotateArray.size() - 1;
+    while (left<right){
+        int mid = (left + right) >> 1;
+        if (rotateArray[mid]>rotateArray[right])
+            left = mid + 1;
+        else
+            right = mid;
+    }
+    return rotateArray[left];
 }
 ```
 ### 10.二进制中1的个数
 ```c++
 int NumberOf1(int n) {
-	int count = 0;
-	while (n){
-		n = n&(n - 1);
-		count++;
-	}
-	return count;
+    int count = 0;
+    while (n){
+        n = n&(n - 1);
+        count++;
+    }
+    return count;
 }
 ```
 ### 11.数值的整数次方
 ```c++
 double Power(double base, int exponent) {
-	if (exponent == 0) return 1;
-	if (exponent<0)
-		return 1.0 / Power(base, -exponent);
-	int temp = Power(base, exponent / 2);
-	if (exponent & 0x01 == 1)
-		return base*temp*temp;
-	else
-		return temp*temp;
+    if (exponent == 0) return 1;
+    if (exponent<0)
+        return 1.0 / Power(base, -exponent);
+    int temp = Power(base, exponent / 2);
+    if (exponent & 0x01 == 1)
+        return base*temp*temp;
+    else
+        return temp*temp;
 }
 ```
 ### 15.链表中倒数第k个结点
 ```c++
 ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
-	if (!pListHead || k <= 0) return NULL;
-	ListNode *p1 = pListHead, *p2 = pListHead;
-	for (int i = 1; i<k; i++){
-		if (p2->next)
-			p2 = p2->next;
-		else
-			return NULL;
-	}
-	while (p2->next){
-		p1 = p1->next;
-		p2 = p2->next;
-	}
-	return p1;
+    if (!pListHead || k <= 0) return NULL;
+    ListNode *p1 = pListHead, *p2 = pListHead;
+    for (int i = 1; i<k; i++){
+        if (p2->next)
+            p2 = p2->next;
+        else
+            return NULL;
+    }
+    while (p2->next){
+        p1 = p1->next;
+        p2 = p2->next;
+    }
+    return p1;
 }
 ```
 ### 16.反转链表
 ```c++
 ListNode* ReverseList(ListNode* pHead) {
-	ListNode *pre = NULL;
-	while (pHead){
-		ListNode* temp = pHead->next;
-		pHead->next = pre;
-		pre = pHead;
-		pHead = temp;
-	}
-	return pre;
+    ListNode *pre = NULL;
+    while (pHead){
+        ListNode* temp = pHead->next;
+        pHead->next = pre;
+        pre = pHead;
+        pHead = temp;
+    }
+    return pre;
 }
+
 ```
 ### 17.合并两个排序链表
 
@@ -144,10 +145,10 @@ bool IsSubtree(TreeNode* pRoot1, TreeNode* pRoot2) {
 ### 19.二叉树的镜像
 ```c++
 void Mirror(TreeNode *pRoot) {
-	if (!pRoot) return;
-	swap(pRoot->left, pRoot->right);
-	Mirror(pRoot->left);
-	Mirror(pRoot->right);
+    if (!pRoot) return;
+    swap(pRoot->left, pRoot->right);
+    Mirror(pRoot->left);
+    Mirror(pRoot->right);
 }
 ```
 ### 20.顺时针打印矩阵
@@ -234,66 +235,66 @@ bool IsPopOrder(vector<int> pushV, vector<int> popV) {
 ### 23.从上往下打印二叉树
 ```c++
 vector<int> PrintFromTopToBottom(TreeNode* root) {
-	vector<int> res;
-	if (!root) return res;
-	queue<TreeNode*> que;
-	que.push(root);
-	while (!que.empty()){
-		int size = que.size();
-		while (size-->0){
-			TreeNode *temp = que.front();
-			res.push_back(temp->val);
-			que.pop();
-			if (temp->left)
-				que.push(temp->left);
-			if (temp->right)
-				que.push(temp->right);
-		}
-	}
-	return res;
+    vector<int> res;
+    if (!root) return res;
+    queue<TreeNode*> que;
+    que.push(root);
+    while (!que.empty()){
+        int size = que.size();
+        while (size-->0){
+            TreeNode *temp = que.front();
+            res.push_back(temp->val);
+            que.pop();
+            if (temp->left)
+                que.push(temp->left);
+            if (temp->right)
+                que.push(temp->right);
+        }
+    }
+    return res;
 }
 ```
 ### 24.二叉搜索树的后序遍历序列(判断）
 ```c++
 bool judge(vector<int> seq, int left, int right){
-	if (left<right){
-		int i = right - 1;
-		while (i >= left && seq[i]>seq[right]) i--;
-		int mid = i;
-		while (i >= left){
-			if (seq[i]>seq[right]) return false;
-			i--;
-		}
-		return judge(seq, left, mid) && judge(seq, mid + 1, right - 1);
-	}
-	return true;
+    if (left<right){
+        int i = right - 1;
+        while (i >= left && seq[i]>seq[right]) i--;
+        int mid = i;
+        while (i >= left){
+            if (seq[i]>seq[right]) return false;
+            i--;
+        }
+        return judge(seq, left, mid) && judge(seq, mid + 1, right - 1);
+    }
+    return true;
 }
 
 bool VerifySquenceOfBST(vector<int> sequence) {
-	if (sequence.empty()) return false;
-	return judge(sequence, 0, sequence.size() - 1);
+    if (sequence.empty()) return false;
+    return judge(sequence, 0, sequence.size() - 1);
 }
 ```
 ### 25.二叉树中和为某一值的路径
 ```c++
 void findfunc(TreeNode* root, int sum, vector<int> &path, vector<vector<int>> &res){
-	sum -= root->val;
-	path.push_back(root->val);
-	if (sum == 0 && !root->left && !root->right)
-		res.push_back(path);
-	if (root->left)
-		findfunc(root->left, sum, path, res);
-	if (root->right)
-		findfunc(root->right, sum, path, res);
-	path.pop_back();
+    sum -= root->val;
+    path.push_back(root->val);
+    if (sum == 0 && !root->left && !root->right)
+        res.push_back(path);
+    if (root->left)
+        findfunc(root->left, sum, path, res);
+    if (root->right)
+        findfunc(root->right, sum, path, res);
+    path.pop_back();
 }
 
 vector<vector<int>> FindPath(TreeNode* root, int expectNumber) {
-	vector<vector<int>> res;
-	vector<int> path;
-	if (!root) return res;
-	findfunc(root, expectNumber, path, res);
-	return res;
+    vector<vector<int>> res;
+    vector<int> path;
+    if (!root) return res;
+    findfunc(root, expectNumber, path, res);
+    return res;
 }
 ```
 ### 27.二叉树转双向链表
@@ -325,24 +326,24 @@ TreeNode* ConvertNode(TreeNode* root) {
 ### 28.字符串的排列
 ```c++
 void permuteFunc(string str, int begin, vector<string> &res){
-	if (begin == str.size() - 1){
-		res.push_back(str);
-		return;
-	}
-	for (int i = begin; i<str.size(); i++){
-		if (i != begin && str[i] == str[i - 1])
-			continue;
-		swap(str[i], str[begin]);
-		permuteFunc(str, begin + 1, res);
-	}
+    if (begin == str.size() - 1){
+        res.push_back(str);
+        return;
+    }
+    for (int i = begin; i<str.size(); i++){
+        if (i != begin && str[i] == str[i - 1])
+            continue;
+        swap(str[i], str[begin]);
+        permuteFunc(str, begin + 1, res);
+    }
 }
 
 vector<string> Permutation(string str) {
-	vector<string> res;
-	if (str.empty()) return res;
-	sort(str.begin(), str.end());
-	permuteFunc(str, 0, res);
-	return res;
+    vector<string> res;
+    if (str.empty()) return res;
+    sort(str.begin(), str.end());
+    permuteFunc(str, 0, res);
+    return res;
 }
 ```
 ### 29.数组中出现次数超过一半的数字
@@ -364,43 +365,43 @@ int majorityElement(vector<int>& nums) {
 ### 30.最小的k个数
 ```c++
 int partition(vector<int> &nums, int begin, int end){
-	int i = begin - 1;
-	for (int j = begin; j<end; j++){
-		if (nums[j]<nums[end])
-			swap(nums[++i], nums[j]);
-	}
-	swap(nums[++i], nums[end]);
-	return i;
+    int i = begin - 1;
+    for (int j = begin; j<end; j++){
+        if (nums[j]<nums[end])
+            swap(nums[++i], nums[j]);
+    }
+    swap(nums[++i], nums[end]);
+    return i;
 }
 
 vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {
-	vector<int> res;
-	if (input.empty() || k>input.size()) return res;
-	int left = 0, right = input.size() - 1;
-	int pos = 0;
-	while (left <= right){
-		pos = partition(input, left, right);
-		if (pos == k - 1) break;
-		else if (pos >k - 1) right = pos - 1;
-		else left = pos + 1;
-	}
-	for (int i = 0; i<k; i++)
-		res.push_back(input[i]);
-	return res;
+    vector<int> res;
+    if (input.empty() || k>input.size()) return res;
+    int left = 0, right = input.size() - 1;
+    int pos = 0;
+    while (left <= right){
+        pos = partition(input, left, right);
+        if (pos == k - 1) break;
+        else if (pos >k - 1) right = pos - 1;
+        else left = pos + 1;
+    }
+    for (int i = 0; i<k; i++)
+        res.push_back(input[i]);
+    return res;
 }
 ```
 ### 31.连续子数组的最大和
 ```c++
 int FindGreatestSumOfSubArray(vector<int> array) {
-	int maxSum = array[0], pre = array[0];
-	for (int i = 1; i<array.size(); i++){
-		if (pre >= 0)
-			pre = array[i] + pre;
-		else
-			pre = array[i];
-		maxSum = max(maxSum, pre);
-	}
-	return maxSum;
+    int maxSum = array[0], pre = array[0];
+    for (int i = 1; i<array.size(); i++){
+        if (pre >= 0)
+            pre = array[i] + pre;
+        else
+            pre = array[i];
+        maxSum = max(maxSum, pre);
+    }
+    return maxSum;
 }
 ```
 ### 32.1到n整数中1出现的次数
@@ -428,14 +429,14 @@ int NumberOf1Between1AndN_Solution(int n)
 ### 35.第一个只出现一次的字符
 ```c++
 int FirstNotRepeatingChar(string str) {
-	map<char, int> mp;
-	for (int i = 0; i < str.size(); ++i)
-		mp[str[i]]++;
-	for (int i = 0; i < str.size(); ++i){
-		if (mp[str[i]] == 1)
-			return i;
-	}
-	return -1;
+    map<char, int> mp;
+    for (int i = 0; i < str.size(); ++i)
+        mp[str[i]]++;
+    for (int i = 0; i < str.size(); ++i){
+        if (mp[str[i]] == 1)
+            return i;
+    }
+    return -1;
 }
 ```
 ### 36.数组中逆序对
@@ -473,19 +474,19 @@ void mergeSort(vector<int> &nums, int left, int right) {
 ### 37.两个链表的第一个公共结点
 ```c++
 ListNode* FindFirstCommonNode(ListNode* pHead1, ListNode* pHead2) {
-	ListNode *cur1 = pHead1, *cur2 = pHead2;
-	while (cur1 != cur2){
-		cur1 = cur1 ? cur1->next : pHead2;
-		cur2 = cur2 ? cur2->next : pHead1;
-	}
-	return cur1;
+    ListNode *cur1 = pHead1, *cur2 = pHead2;
+    while (cur1 != cur2){
+        cur1 = cur1 ? cur1->next : pHead2;
+        cur2 = cur2 ? cur2->next : pHead1;
+    }
+    return cur1;
 }
 ```
 ### 39.二叉树的深度
 ```c++
 int TreeDepth(TreeNode* pRoot){
-	if (!pRoot) return 0;
-	return 1 + max(TreeDepth(pRoot->left), TreeDepth(pRoot->right));
+    if (!pRoot) return 0;
+    return 1 + max(TreeDepth(pRoot->left), TreeDepth(pRoot->right));
 }
 ```
 ### 39.平衡二叉树判断
@@ -538,9 +539,10 @@ string ReverseSentence(string str) {
 
 ```c++
 int Add(int num1, int num2){
-	if (!num2) return num1;
-	return Add(num1^num2, (num1&num2) << 1);
+    if (!num2) return num1;
+    return Add(num1^num2, (num1&num2) << 1);
 }
+
 ```
 ### 49.把字符串转化成整数
 
@@ -637,54 +639,54 @@ bool duplicate(int numbers[], int length, int* duplication) {
 ### 56.链表中环的入口结点
 ```c++
 ListNode* EntryNodeOfLoop(ListNode* pHead){
-	if (!pHead) return NULL;
-	ListNode *pfast = pHead, *pslow = pHead;
-	while (pfast && pfast->next){
-		pfast = pfast->next->next;
-		pslow = pslow->next;
-		if (pfast == pslow){
-			pslow = pHead;
-			while (pslow != pfast){
-				pslow = pslow->next;
-				pfast = pfast->next;
-			}
-			return pslow;
-		}
-	}
-	return NULL;
+    if (!pHead) return NULL;
+    ListNode *pfast = pHead, *pslow = pHead;
+    while (pfast && pfast->next){
+        pfast = pfast->next->next;
+        pslow = pslow->next;
+        if (pfast == pslow){
+            pslow = pHead;
+            while (pslow != pfast){
+                pslow = pslow->next;
+                pfast = pfast->next;
+            }
+            return pslow;
+        }
+    }
+    return NULL;
 }
 ```
 ### 57.删除链表中重复的结点
 ```c++
 ListNode* deleteDuplication(ListNode* pHead){
-	if (!pHead) return NULL;
-	ListNode *prehead = new ListNode(-1), *cur = prehead;
-	prehead->next = pHead;
-	while (cur->next && cur->next->next){
-		if (cur->next->val == cur->next->next->val){
-			int temp = cur->next->val;
-			while (cur->next && cur->next->val == temp){
-				cur->next = cur->next->next;
-			}
-		}
-		else
-			cur = cur->next;
-	}
-	return prehead->next;
+    if (!pHead) return NULL;
+    ListNode *prehead = new ListNode(-1), *cur = prehead;
+    prehead->next = pHead;
+    while (cur->next && cur->next->next){
+        if (cur->next->val == cur->next->next->val){
+            int temp = cur->next->val;
+            while (cur->next && cur->next->val == temp){
+                cur->next = cur->next->next;
+            }
+        }
+        else
+            cur = cur->next;
+    }
+    return prehead->next;
 }
 ```
 ### 59.对称的二叉树
 ```c++
 bool SymmetircFunc(TreeNode* node1, TreeNode *node2){
-	if (!node1 && !node2) return true;
-	if (!node1 || !node2) return false;
-	if (node1->val != node2->val) return false;
-	return SymmetircFunc(node1->right, node2->left) && SymmetircFunc(node1->left, node2->right);
+    if (!node1 && !node2) return true;
+    if (!node1 || !node2) return false;
+    if (node1->val != node2->val) return false;
+    return SymmetircFunc(node1->right, node2->left) && SymmetircFunc(node1->left, node2->right);
 }
 
 bool isSymmetrical(TreeNode* pRoot){
-	if (!pRoot) return true;
-	return SymmetircFunc(pRoot->left, pRoot->right);
+    if (!pRoot) return true;
+    return SymmetircFunc(pRoot->left, pRoot->right);
 }
 ```
 ### 64.数据流中的中位数
